@@ -62,7 +62,8 @@ function getGraphQLValue(value) {
 }
 
 function objectToString(obj) {
-    
+  if (!obj) return null;
+
   let sourceA = [];
   
   for(let prop in obj){
