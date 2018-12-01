@@ -13,4 +13,4 @@ new Query("example").filter({
 
 # graphql-query-builder
 
-Please refer to original repo for any more information. This fork was quick fix and guarantees nothing about code quality or tests.
+Please refer to original repo for any more information. This fork was a quick fix and guarantees nothing about code quality or tests.
