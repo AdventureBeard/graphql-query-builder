@@ -42,7 +42,9 @@ function parceFind(_levelA) {
 //=====================================================
 
 function getGraphQLValue(value) {
-      if ("string" === typeof value) {
+      if (value instanceof EnumValue) {
+        value = value.toString();
+      } else if ("string" === typeof value) {
         value = JSON.stringify(value);
       } else if (Array.isArray(value)) {
         value = value.map(item => {
@@ -129,6 +131,14 @@ function Query(_fnNameS, _aliasS_OR_Filter){
     };
 }
 
+function EnumValue(value) {
+    this.value = value;
+
+    this.toString = () => {
+        return this.value;
+    }
+}
+
 //=====================================================
 //===================================== Query prototype
 //=====================================================
@@ -144,4 +154,7 @@ Query.prototype = {
     }
 };
 
-module.exports = Query;
+module.exports = {
+    Query,
+    EnumValue
+};
